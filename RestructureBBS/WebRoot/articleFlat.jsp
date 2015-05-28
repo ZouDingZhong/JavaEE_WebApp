@@ -5,7 +5,6 @@
  	String adminLogined = (String)session.getAttribute("adminLogined");
  	if(adminLogined!=null&&adminLogined.equalsIgnoreCase("true"))
  	{
- System.out.println("test"+logined);	
  		logined = true;
  	}	
   %>
@@ -13,7 +12,6 @@
  <%	
  	List<Article> articles = new ArrayList<Article>();
  	Connection conn = DB.getConn();
-if(conn==null) System.out.println("????????????");
  	Statement stmt = DB.getStmt(conn);
  	
  	int pageSize = 4;
@@ -55,7 +53,6 @@ if(conn==null) System.out.println("????????????");
 			a.setGrade(0);
 			//这里的getDate在范例中是getTimestamp
 			a.setPdate(rs.getTimestamp("pdate"));
-System.out.println(rs.getDate("pdate"));
 			a.setLeaf(rs.getInt("isleaf")==0?true:false);
 			a.setRootId(rs.getInt("rootid"));
 		    a.setPid(rs.getInt("pid"));
@@ -66,7 +63,6 @@ System.out.println(rs.getDate("pdate"));
  	String url = "";
  	url += request.getRequestURL();
     url += "?pageNo="+pageNo;
-System.out.println(url);    
   %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
@@ -168,7 +164,7 @@ System.out.println(url);
                     <% }%>
                     </td>
                     
-                    <td class="jive-thread-name" width="95%"><a id="jive-thread-1" href="articleFlatdetail.jsp?id=<%= a.getId()%>&rootid=<%= a.getRootId()%>"><%=a.getTitle() %></a></td>
+                    <td class="jive-thread-name" width="95%"><a id="jive-thread-1" href="articleFlatDetail?id=<%= a.getId()%>&rootid=<%= a.getRootId()%>"><%=a.getTitle() %></a></td>
                     <td class="jive-author" nowrap="nowrap" width="1%"><span class=""> <a href=""><%=a.getUserName() %></a> </span></td>
                     <td class="jive-view-count" width="1%"> 104</td>
                     <td class="jive-msg-count" width="1%"> 5</td>

@@ -78,7 +78,7 @@ if(a == null) {
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
       <tr valign="top">
-        <td width="99%"><p class="jive-breadcrumbs"> <a href="articleFlat.jsp">首页</a> &#187; <a href="articleFlat.jsp">简易BBS</a> </p>
+        <td width="99%"><p class="jive-breadcrumbs"> <a href="articleFlat">首页</a> &#187; <a href="articleFlat">简易BBS</a> </p>
           <p class="jive-page-title">  主题: <%=articles.get(0).getTitle() %> </p></td>
         <td width="1%"><div class="jive-accountbox"></div></td>
       </tr>
@@ -88,8 +88,8 @@ if(a == null) {
     <table summary="Buttons" border="0" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
-          <td class="jive-icon"><a href="reply.jsp?id=<%=a.getId() %>&rootid=<%=a.getRootId() %>"><img src="images/reply-16x16.gif" alt="回复本主题" border="0" height="16" width="16"></a></td>
-          <td class="jive-icon-label"><a id="jive-reply-thread" href="reply.jsp?id=<%=a.getId() %>&rootid=<%=a.getRootId() %>">回复本主题</a> </td>
+          <td class="jive-icon"><a href="reply?id=<%=a.getId() %>&rootid=<%=a.getRootId() %>"><img src="images/reply-16x16.gif" alt="回复本主题" border="0" height="16" width="16"></a></td>
+          <td class="jive-icon-label"><a id="jive-reply-thread" href="reply?id=<%=a.getId() %>&rootid=<%=a.getRootId() %>">回复本主题</a> </td>
           <td><a href="articleFlat.jsp"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> </td>
           <td><a href="articleFlat.jsp">返回到主题列表</a> </td>
         </tr>
@@ -157,8 +157,8 @@ if(a == null) {
                                       <tbody>
                                         <tr>
                                           <td>&nbsp;</td>
-                                          <td class="jive-icon"><a href="reply.jsp?id=<%=ra.getId() %>&rootid=<%=ra.getRootId() %>" title="回复本主题"><img src="images/reply-16x16.gif" alt="回复本主题" border="0" height="16" width="16"></a> </td>
-                                          <td class="jive-icon-label"><a href="reply.jsp?id=<%=ra.getId() %>&rootid=<%=ra.getRootId() %>" title="回复本主题">回复</a> </td>
+                                          <td class="jive-icon"><a href="reply?id=<%=ra.getId() %>&rootid=<%=ra.getRootId() %>" title="回复本主题"><img src="images/reply-16x16.gif" alt="回复本主题" border="0" height="16" width="16"></a> </td>
+                                          <td class="jive-icon-label"><a href="reply?id=<%=ra.getId() %>&rootid=<%=ra.getRootId() %>" title="回复本主题">回复</a> </td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -201,8 +201,8 @@ if(a == null) {
                     <td align="center" width="98%"><table border="0" cellpadding="0" cellspacing="0">
                         <tbody>
                           <tr>
-                            <td><a href="articleFlat.jsp"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> </td>
-                            <td><a href="articleFlat.jsp">返回到主题列表</a> </td>
+                            <td><a href="articleFlat"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> </td>
+                            <td><a href="articleFlat">返回到主题列表</a> </td>
                           </tr>
                         </tbody>
                       </table></td>

@@ -1,5 +1,8 @@
+<%@page import="java.sql.Date"%>
+<%@page import="com.zdz.restructurebbs.dao.ArticleDao"%>
+<%@page import="com.zdz.restructurebbs.service.ArticleService"%>
 <%@page pageEncoding="GBK"%>
-<%@page import = "java.sql.*,com.zdz.bbs.*,java.util.*"%>
+<%@page import = "java.sql.*,com.zdz.restructurebbs.model.*,java.util.*"%>
 <%
 request.setCharacterEncoding("GB18030");
 
@@ -8,42 +11,26 @@ System.out.println(isPost);
 if(isPost!=null)
 {
  	 String title = request.getParameter("title");
-System.out.println(title);
 	 String cont = request.getParameter("cont");
-	 
 	 String username = request.getParameter("username");
-	 Connection conn = DB.getConn();
-
-     boolean autoCommit = conn.getAutoCommit();
-     conn.setAutoCommit(false);
- 
-
-	 int rootid = -1;		
-	 String sql = "insert into article values (null, ?, ?, ?, ?, now(), ?,?)";
-		PreparedStatement pstmt = DB.getPreStmt(conn, sql, Statement.RETURN_GENERATED_KEYS);
-		pstmt.setInt(1, 0);
-		pstmt.setInt(2, rootid);
-		pstmt.setString(3, title);
-		pstmt.setString(4, cont);
-		pstmt.setInt(5, 0);
-		pstmt.setString(6,username);
-		pstmt.executeUpdate();
-		
-		ResultSet rsKey = pstmt.getGeneratedKeys();
-		rsKey.next();
-		rootid = rsKey.getInt(1);
 	 
-	 Statement stmt = conn.createStatement();
- 	 stmt.executeUpdate("update article set rootid = " + rootid + " where id = "	+ rootid);
+	 ArticleService articleService = new ArticleService();
+	 ArticleDao articleDao = new ArticleDao();
+	 articleService.setArticleDao(articleDao);
+	 
+	 Article article = new Article();
+	 int rootid = -1;		
+	 article.setCont(cont);
+	 article.setIsLeaf(true);
+	 article.setPdate(new Date(System.currentTimeMillis()));
+	 article.setPid(0);
+	 article.setRootId(rootid);
+	 article.setTitle(title);
+	 article.setUsername(username);
  	 
- 	 conn.commit();
-     conn.setAutoCommit(true);
- 
- 	 stmt.close();
- 	 rsKey.close();
- 	 pstmt.close();
- 	 conn.close();
- 	 
+	 rootid = articleService.save(article);
+	 article.setRootId(rootid);
+	 articleService.save(article);
  	 response.sendRedirect("articleFlat.jsp");
 }
  %>

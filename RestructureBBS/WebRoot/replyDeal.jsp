@@ -1,46 +1,31 @@
+<%@page import="java.sql.Date"%>
+<%@page import="com.zdz.restructurebbs.service.ArticleService"%>
 <%@page pageEncoding="GBK"%>
-<%@page import = "java.sql.*,com.zdz.bbs.*,java.util.*,java.sql.PreparedStatement"%>
+<%@page import = "java.sql.*,com.zdz.restructurebbs.model.*,com.zdz.restructurebbs.dao.*,java.util.*,java.sql.PreparedStatement"%>
  <%
  request.setCharacterEncoding("GB18030");
  
- System.out.println("this is come from replyDeal pid "+request.getParameter("pid"));
- System.out.println("this is come from replyDeal pid "+Integer.parseInt(request.getParameter("pid")));
- System.out.println("this is come from replyDeal title "+request.getParameter("title"));
  int pid = Integer.parseInt(request.getParameter("pid"));
  int rootid = Integer.parseInt(request.getParameter("rootid"));
- 
- 
  String title = request.getParameter("title");
  String cont = request.getParameter("cont");
  String username = request.getParameter("username");
-  Connection conn = DB.getConn();
 
-     boolean autoCommit = conn.getAutoCommit();
-     conn.setAutoCommit(false);
+ ArticleService articleService = new ArticleService();
+ ArticleDao articleDao = new ArticleDao();
+ articleService.setArticleDao(articleDao);
  
-
-		
-	 String sql = "insert into article values (null, ?, ?, ?, ?, now(), ?,?)";
-		PreparedStatement pstmt = DB.getPreStmt(conn, sql, Statement.RETURN_GENERATED_KEYS);
-		pstmt.setInt(1, pid);
-		pstmt.setInt(2, rootid);
-		pstmt.setString(3, title);
-		pstmt.setString(4, cont);
-		pstmt.setInt(5, 0);
-		pstmt.setString(6,username);
-		pstmt.executeUpdate();
-		
-		ResultSet rsKey = pstmt.getGeneratedKeys();
-		rsKey.next();
-	 
+ Article article = new Article();
+ article.setCont(cont);
+ article.setPdate(new Date(System.currentTimeMillis()));
+ article.setIsLeaf(true);
+ article.setPid(pid);
+ article.setRootId(rootid);
+ article.setTitle(title);
+ article.setUsername(username);
  
- 	 conn.commit();
-     conn.setAutoCommit(true);
+ articleService.save(article);
  
- 	
- 	 rsKey.close();
- 	 pstmt.close();
- 	 conn.close();
   %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
@@ -51,27 +36,6 @@
 <script language="JavaScript" type="text/javascript" src="images/global.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://bbs.chinajavaworld.com/rss/rssmessages.jspa?forumID=20">
 <script language="JavaScript" type="text/javascript" src="images/common.js"></script>
-
-<!--  
-<script language="JavaScript1.2" type="text/javascript">
-function delayURL(url) {
-	div delay = document.getElementById("time").innerText;
-alert(delay);
-	if(delay>0)
-	{
-		delay--;
-		document.getElementById("time").innerText = delay;
-	}
-	else
-	{
-		top.location.href='article.jsp';
-	}
-    setTimeout("delayURL('" + url + "')", 1000);
-}
-</script>
--->
-
-
 <script language="JavaScript1.2" type="text/javascript">
 <!--
 //  Place this in the 'head' section of your page.  

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!-- <constant name="struts.objectFactory" value="spring" /> -->
+
+	<package name="bbs" extends="struts-default" namespace="/">
+		<action name="articleFlat">
+			<result>/articleFlat.jsp</result>
+		</action>
+		<action name="articleFlatDetail">
+			<result>/articleFlatDetail.jsp</result>
+		</action>
+		<action name="delete">
+			<result>/delete.jsp</result>
+		</action>
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="newArticle">
+			<result>/newArticle.jsp</result>
+		</action>
+		<action name="reply">
+			<result>/reply.jsp</result>
+		</action>
+		<action name="replyDeal">
+			<result>/replyDeal.jsp</result>
+		</action>
+	</package>
+	
+	<!-- <package name="bbs" extends="struts-default">
+		<action name="articleFlat" class="com.zdz.restructurebbs.action.ArticleFlatAction">
+			<result>/articleFlat.jsp</result>
+		</action>
+	</package> -->
+
+</struts>
