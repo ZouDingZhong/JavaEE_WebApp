@@ -33,7 +33,7 @@ alert("登录成功");
 </Script>
 <%
 	session.setAttribute("adminLogined", "true");
-	response.sendRedirect("articleFlat.jsp");
+	response.sendRedirect("articleFlat");
 	}
 }
 %>
@@ -121,7 +121,7 @@ TH {
 
 				<TR>
 					<TD align=center><BR>
-					<a href="articleFlat.jsp" >返回</a>
+					<a href="articleFlat" >返回</a>
 						<INPUT 
 						style="CURSOR: pointer; COLOR: #ffffff; BACKGROUND-COLOR: #ff6600"
 						type="submit" value=登录 name=Submit> &nbsp; <BR>

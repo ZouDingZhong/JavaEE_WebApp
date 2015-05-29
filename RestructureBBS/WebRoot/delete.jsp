@@ -78,7 +78,7 @@ alert(delay);
 	}
 	else
 	{
-		top.location.href='article.jsp';
+		top.location.href='article';
 	}
     setTimeout("delayURL('" + url + "')", 1000);
 }
@@ -128,21 +128,12 @@ function delayURL(url, time) {
 
 
 
-<!--  
-  <script language="JavaScript1.2" type="text/javascript">
-  delayURL('article.jsp')
-alert("work");
-System.out.println("swork");  
-  </script>
-  <span id="time">3</span>秒后自动跳转，如未跳转请点击
-  <a href="article.jsp" onClick="top.location.href='article.jsp'">此处...</a>
- -->
   
   <script language="JavaScript1.2" type="text/javascript">
-  delayURL('articleFlat.jsp','3000')
+  delayURL('articleFlat','3000')
   </script>
   <span id="time">3</span>秒后自动跳转，如未跳转请点击
-  <a href="javascript:" onClick="delayURL('articleFlat.jsp','0000')">此处...</a>
+  <a href="javascript:" onClick="delayURL('articleFlat','0000')">此处...</a>
  
   
 </div>

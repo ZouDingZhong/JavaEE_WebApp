@@ -40,15 +40,15 @@ System.out.println("test iswork"+id);
       <tr valign="top">
         <td width="98%"><p class="jive-breadcrumbs">论坛: Java语言web开发练习</p>
           <p class="jive-description"> 这个是个打酱油的简易论坛，大家可以随意吐槽... </p>
-              <p><a href="articleFlat.jsp"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> 
-               <a href="articleFlat.jsp">返回到主题列表</a> </p>
+              <p><a href="articleFlat"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> 
+               <a href="articleFlat">返回到主题列表</a> </p>
          
           </td>                     
       </tr>
     </tbody>
   </table>
   <br>
-  <form action="replyDeal.jsp" name="form" method="post" >
+  <form action="replyDeal" name="form" method="post" >
     <input type="hidden" name="pid" value="<%=id%>">
     <input type="hidden" name="rootid" value="<%=rootid%>">
     

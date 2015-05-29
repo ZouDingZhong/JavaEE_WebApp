@@ -31,7 +31,7 @@ if(isPost!=null)
 	 rootid = articleService.save(article);
 	 article.setRootId(rootid);
 	 articleService.save(article);
- 	 response.sendRedirect("articleFlat.jsp");
+ 	 response.sendRedirect("articleFlat");
 }
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -69,15 +69,15 @@ if(isPost!=null)
       <tr valign="top">
         <td width="98%"><p class="jive-breadcrumbs">论坛: Java语言web开发练习</p>
           <p class="jive-description"> 这个是个打酱油的简易论坛，大家可以随意吐槽... </p>
-              <p><a href="articleFlat.jsp"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> 
-               <a href="articleFlat.jsp">返回到主题列表</a> </p>
+              <p><a href="articleFlat"><img src="images/arrow-left-16x16.gif" alt="返回到主题列表" border="0" height="16" hspace="6" width="16"></a> 
+               <a href="articleFlat">返回到主题列表</a> </p>
          
           </td>                     
       </tr>
     </tbody>
   </table>
   <br>
-  <form action="newArticle.jsp" name="form" method="post" onSubmit="return checkdata()">
+  <form action="newArticle" name="form" method="post" onSubmit="return checkdata()">
  
           <td>发帖昵称：<input type="text" name="username" style="height: 20px; width: 155px" onBlur="checkUserName(this.value.toLowerCase())"><br><span id="usernameErr"></span><td>
   

@@ -7,7 +7,7 @@
 	<!-- <constant name="struts.objectFactory" value="spring" /> -->
 
 	<package name="bbs" extends="struts-default" namespace="/">
-		<action name="articleFlat">
+		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">
 			<result>/articleFlat.jsp</result>
 		</action>
 		<action name="articleFlatDetail">
