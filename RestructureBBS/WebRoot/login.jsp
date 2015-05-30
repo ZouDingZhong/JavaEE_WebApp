@@ -8,7 +8,6 @@ if(action!=null&&action.equalsIgnoreCase("post"))
 	String password = request.getParameter("password");
 	if(name==null||!name.equalsIgnoreCase("admin"))
 	{
-	System.out.println("name wrong");
 %>
 <Script Language="JavaScript">
 alert("The Username is wrong");
@@ -33,7 +32,7 @@ alert("登录成功");
 </Script>
 <%
 	session.setAttribute("adminLogined", "true");
-	response.sendRedirect("articleFlat");
+	response.sendRedirect("backgroundAdmin");
 	}
 }
 %>

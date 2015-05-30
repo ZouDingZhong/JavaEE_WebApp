@@ -1,6 +1,14 @@
 <%@page pageEncoding="GBK"%>
 <%@page import="java.util.*"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
+<%
+	boolean logined = false;
+	String adminLogined = (String) session.getAttribute("adminLogined");
+	if (adminLogined == null
+			|| (!adminLogined.equalsIgnoreCase("true"))) {
+		response.sendRedirect("articleFlat");
+	}
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -100,11 +108,10 @@
 														class="jive-bullet">
 														<img src="images/read-16x16.gif" alt="ря╤а" border="0"
 															height="16" width="16">
-														<!-- div-->
 													</div></td>
-
-												<td nowrap="nowrap" width="1%"></td>
-
+												<td nowrap="nowrap" width="1%"><a
+													href="delete?id=<s:property value="id"/>&isLeaf=<s:property value="isLeaf"/>">и╬ЁЩ</a>
+												</td>
 												<td class="jive-thread-name" width="95%"><a
 													id="jive-thread-1"
 													href="articleFlatDetail?id=<s:property value="id"/>&rootid=<s:property value="rootId"/>"><s:property

@@ -5,7 +5,7 @@
 <struts>
 
 	<!-- <constant name="struts.objectFactory" value="spring" /> -->
-
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
 	<package name="bbs" extends="struts-default" namespace="/">
 		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">
 			<result>/articleFlat.jsp</result>
@@ -19,21 +19,19 @@
 		<action name="login">
 			<result>/login.jsp</result>
 		</action>
-		<action name="newArticle">
+		<action name="newArticle" class="com.zdz.restructurebbs.action.NewArticleAction">
 			<result>/newArticle.jsp</result>
+			<result type="chain" name="return">articleFlat</result>			
 		</action>
-		<action name="reply">
+		<action name="reply" class="com.zdz.restructurebbs.action.MainAction">
 			<result>/reply.jsp</result>
 		</action>
-		<action name="replyDeal">
+		<action name="replyDeal" class="com.zdz.restructurebbs.action.NewArticleAction">
 			<result>/replyDeal.jsp</result>
 		</action>
-	</package>
-	
-	<!-- <package name="bbs" extends="struts-default">
-		<action name="articleFlat" class="com.zdz.restructurebbs.action.ArticleFlatAction">
-			<result>/articleFlat.jsp</result>
+		<action name="backgroundAdmin" class="com.zdz.restructurebbs.action.SplitPageAction">
+			<result>/backgroundAdmin.jsp</result>
 		</action>
-	</package> -->
+	</package>
 
 </struts>

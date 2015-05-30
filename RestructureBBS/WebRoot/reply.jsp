@@ -1,12 +1,5 @@
 <%@page pageEncoding="GBK"%>
-<%@page import = "java.sql.*,com.zdz.bbs.*,java.util.*"%>
-<%
-
-String id =  request.getParameter("id");
-String rootid =  request.getParameter("rootid");
-System.out.println("test iswork"+id);
-
- %>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -48,9 +41,9 @@ System.out.println("test iswork"+id);
     </tbody>
   </table>
   <br>
-  <form action="replyDeal" name="form" method="post" >
-    <input type="hidden" name="pid" value="<%=id%>">
-    <input type="hidden" name="rootid" value="<%=rootid%>">
+  <form action="replyDeal!replyDeal" name="form" method="post" >
+    <input type="hidden" name="pid" value="<s:property value="id"/>">
+    <input type="hidden" name="rootid" value="<s:property value="rootid"/>">
     
    <td>发帖昵称：<input type="text" name="username" style="height: 20px; width: 155px" onBlur="checkUserName(this.value.toLowerCase())"><br><span id="usernameErr"></span><td>
     <br>
@@ -63,12 +56,10 @@ System.out.println("test iswork"+id);
   
 <!-- this is the ckeditor coding -->  
 <script type="text/javascript">
-//<![CDATA[
  CKEDITOR.replace( 'editor1',//editor1是你文本域的ID
   {
    skin : 'kama'//想要使用的皮肤
   });
-//]]>
 </script>
   
   
