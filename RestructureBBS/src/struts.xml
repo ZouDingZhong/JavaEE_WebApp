@@ -10,10 +10,10 @@
 		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">
 			<result>/articleFlat.jsp</result>
 		</action>
-		<action name="articleFlatDetail">
+		<action name="articleFlatDetail" class="com.zdz.restructurebbs.action.ArticleFlatDetailAction">
 			<result>/articleFlatDetail.jsp</result>
 		</action>
-		<action name="delete">
+		<action name="delete" class="com.zdz.restructurebbs.action.MainAction">
 			<result>/delete.jsp</result>
 		</action>
 		<action name="login">

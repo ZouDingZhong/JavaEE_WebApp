@@ -1,10 +1,10 @@
-<%@page pageEncoding="GBK"%>
+<%@page pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 
-<title>Java|JavaÊÀ½ç_ÖĞÎÄÂÛÌ³|ChinaJavaWorld¼¼ÊõÂÛÌ³ : JavaÓïÑÔ*³õ¼¶°æ</title>
+<title>Java|Javaä¸–ç•Œ_ä¸­æ–‡è®ºå›|ChinaJavaWorldæŠ€æœ¯è®ºå› : Javaè¯­è¨€*åˆçº§ç‰ˆ</title>
 <meta http-equiv="content-type" content="text/html; charset=GBK">
 
 <!-- this is the ckeditor coding -->
@@ -20,7 +20,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
     <tr>
-      <td width="140"><a href="http://bbs.chinajavaworld.com/index.jspa"><img src="images/header-left.gif" alt="Java|JavaÊÀ½ç_ÖĞÎÄÂÛÌ³|ChinaJavaWorld¼¼ÊõÂÛÌ³" border="0"></a></td>
+      <td width="140"><a href="http://bbs.chinajavaworld.com/index.jspa"><img src="images/header-left.gif" alt="Java|Javaä¸–ç•Œ_ä¸­æ–‡è®ºå›|ChinaJavaWorldæŠ€æœ¯è®ºå›" border="0"></a></td>
       <td><img src="images/header-stretch.gif" alt="" border="0" height="57" width="100%"></td>
       <td width="1%"><img src="images/header-right.gif" alt="" border="0"></td>
     </tr>
@@ -31,10 +31,10 @@
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
       <tr valign="top">
-        <td width="98%"><p class="jive-breadcrumbs">ÂÛÌ³: JavaÓïÑÔweb¿ª·¢Á·Ï°</p>
-          <p class="jive-description"> Õâ¸öÊÇ¸ö´ò½´ÓÍµÄ¼òÒ×ÂÛÌ³£¬´ó¼Ò¿ÉÒÔËæÒâÍÂ²Û... </p>
-              <p><a href="articleFlat"><img src="images/arrow-left-16x16.gif" alt="·µ»Øµ½Ö÷ÌâÁĞ±í" border="0" height="16" hspace="6" width="16"></a> 
-               <a href="articleFlat">·µ»Øµ½Ö÷ÌâÁĞ±í</a> </p>
+        <td width="98%"><p class="jive-breadcrumbs">è®ºå›: Javaè¯­è¨€webå¼€å‘ç»ƒä¹ </p>
+          <p class="jive-description"> è¿™ä¸ªæ˜¯ä¸ªæ‰“é…±æ²¹çš„ç®€æ˜“è®ºå›ï¼Œå¤§å®¶å¯ä»¥éšæ„åæ§½... </p>
+              <p><a href="articleFlat"><img src="images/arrow-left-16x16.gif" alt="è¿”å›åˆ°ä¸»é¢˜åˆ—è¡¨" border="0" height="16" hspace="6" width="16"></a> 
+               <a href="articleFlat">è¿”å›åˆ°ä¸»é¢˜åˆ—è¡¨</a> </p>
          
           </td>                     
       </tr>
@@ -45,20 +45,20 @@
     <input type="hidden" name="pid" value="<s:property value="id"/>">
     <input type="hidden" name="rootid" value="<s:property value="rootid"/>">
     
-   <td>·¢ÌûêÇ³Æ£º<input type="text" name="username" style="height: 20px; width: 155px" onBlur="checkUserName(this.value.toLowerCase())"><br><span id="usernameErr"></span><td>
+   <td>å‘å¸–æ˜µç§°ï¼š<input type="text" name="username" style="height: 20px; width: 155px" onBlur="checkUserName(this.value.toLowerCase())"><br><span id="usernameErr"></span><td>
     <br>
     <input type="hidden" name="post" value="1">
-          ±ê Ìâ£º&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="title" style="height: 20px; width: 155px"><br>
+          æ ‡ é¢˜ï¼š&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="title" style="height: 20px; width: 155px"><br>
   	<br>
-  	ÄÚÈİ£º<textarea class="ckeditor" name="cont" rows="20" cols="100"></textarea><br>
-  	<input type="submit" name="submit" id="submit" value="Ìá½»">
+  	å†…å®¹ï¼š<textarea class="ckeditor" name="cont" rows="20" cols="100"></textarea><br>
+  	<input type="submit" name="submit" id="submit" value="æäº¤">
   </form>
   
 <!-- this is the ckeditor coding -->  
 <script type="text/javascript">
- CKEDITOR.replace( 'editor1',//editor1ÊÇÄãÎÄ±¾ÓòµÄID
+ CKEDITOR.replace( 'editor1',//editor1æ˜¯ä½ æ–‡æœ¬åŸŸçš„ID
   {
-   skin : 'kama'//ÏëÒªÊ¹ÓÃµÄÆ¤·ô
+   skin : 'kama'//æƒ³è¦ä½¿ç”¨çš„çš®è‚¤
   });
 </script>
   

@@ -9,7 +9,7 @@ import com.zdz.restructurebbs.model.Article;
 
 public class ArticleService {
 	private ArticleDao articleDao;
-	
+
 	public ArticleDao getArticleDao() {
 		return articleDao;
 	}
@@ -18,17 +18,26 @@ public class ArticleService {
 		this.articleDao = articleDao;
 	}
 
-	public int save(Article article){
+	public int save(Article article) {
 		return articleDao.save(article);
 	}
-	
-	public List<Article> getSplitPageList(int pageSize,int pageNumber)
-	{
+
+	public List<Article> getSplitPageList(int pageSize, int pageNumber) {
 		return articleDao.getSplitPageList(pageSize, pageNumber);
 	}
-	
-	public int getSplitPageTotalNumber(int pageSize)
-	{
+
+	public int getSplitPageTotalNumber(int pageSize) {
 		return articleDao.getSplitPageTotalNumber(pageSize);
+	}
+
+	public List<Article> getArticlesByRootid(int rootId) {
+		return articleDao.getArticlesByRootid(rootId);
+	}
+
+	public Article getArticleById(int id) {
+		return articleDao.getArticleById(id);
+	}
+	public void deleteArticleById(int id) {
+		articleDao.deleteById(id);
 	}
 }

@@ -1,10 +1,10 @@
-<%@page pageEncoding="GBK"%>
+<%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<title>·ÂÖÆ°æBBS by zdz</title>
+<title>ä»¿åˆ¶ç‰ˆBBS by zdz</title>
 <meta http-equiv="content-type" content="text/html; charset=GBK">
 <link rel="stylesheet" type="text/css" href="images/style.css"
 	title="Integrated Styles">
@@ -22,7 +22,7 @@
 				<td width="140"><a
 					href="http://bbs.chinajavaworld.com/index.jspa"><img
 						src="images/header-left.gif"
-						alt="Java|JavaÊÀ½ç_ÖÐÎÄÂÛÌ³|ChinaJavaWorld¼¼ÊõÂÛÌ³" border="0"></a></td>
+						alt="Java|Javaä¸–ç•Œ_ä¸­æ–‡è®ºå›|ChinaJavaWorldæŠ€æœ¯è®ºå›" border="0"></a></td>
 				<td><img src="images/header-stretch.gif" alt="" border="0"
 					height="57" width="100%"></td>
 				<td width="1%"><img src="images/header-right.gif" alt=""
@@ -35,10 +35,10 @@
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tbody>
 				<tr valign="top">
-					<td width="98%"><p class="jive-breadcrumbs">ÂÛÌ³:
-							JavaÓïÑÔweb¿ª·¢Á·Ï°</p>
-						<p class="jive-description">Õâ¸öÊÇ¸ö´ò½´ÓÍµÄ¼òÒ×ÂÛÌ³£¬´ó¼Ò¿ÉÒÔËæÒâÍÂ²Û...</p>
-						<p class="jive-description">×÷ÕßÓÊÏä£º424486138@qq.com</p></td>
+					<td width="98%"><p class="jive-breadcrumbs">è®ºå›:
+							Javaè¯­è¨€webå¼€å‘ç»ƒä¹ </p>
+						<p class="jive-description">è¿™ä¸ªæ˜¯ä¸ªæ‰“é…±æ²¹çš„ç®€æ˜“è®ºå›ï¼Œå¤§å®¶å¯ä»¥éšæ„åæ§½...</p>
+						<p class="jive-description">ä½œè€…é‚®ç®±ï¼š424486138@qq.com</p></td>
 				</tr>
 			</tbody>
 		</table>
@@ -47,14 +47,14 @@
 				<tbody>
 					<tr>
 						<td class="jive-icon"><a href="newArticle"><img
-								src="images/post-16x16.gif" alt="·¢±íÐÂÖ÷Ìâ" border="0" height="16"
+								src="images/post-16x16.gif" alt="å‘è¡¨æ–°ä¸»é¢˜" border="0" height="16"
 								width="16"></a></td>
 						<td class="jive-icon-label"><a id="jive-post-thread"
-							href="newArticle">·¢±íÐÂÖ÷Ìâ</a> <a href="reply"></a></td>
+							href="newArticle">å‘è¡¨æ–°ä¸»é¢˜</a> <a href="reply"></a></td>
 					</tr>
 					<td></td>
 					<td class="jive-icon-label"><a id="jive-post-thread"
-						href="login">¹ÜÀíÔ±µÇÂ¼</a>
+						href="login">ç®¡ç†å‘˜ç™»å½•</a>
 					<tr>
 
 					</tr>
@@ -65,12 +65,12 @@
 		<table border="0" cellpadding="3" cellspacing="0" width="100%">
 			<tbody>
 				<tr valign="top">
-					<td><span class="nobreak"> ¹² <s:property
-								value="totalPageNumber" /> Ò³ <span class="jive-paginator">
+					<td><span class="nobreak"> å…± <s:property
+								value="totalPageNumber" /> é¡µ <span class="jive-paginator">
 								[ <a
-								href="articleFlat?pageNumber=<s:property value='lastPageNumber'/>">ÉÏÒ»Ò³</a>
-								]µÚ <s:property value="pageNumber" /> Ò³ [ <a
-								href="articleFlat?pageNumber=<s:property value='nextPageNumber'/>">ÏÂÒ»Ò³</a>
+								href="articleFlat?pageNumber=<s:property value='lastPageNumber'/>">ä¸Šä¸€é¡µ</a>
+								]ç¬¬ <s:property value="pageNumber" /> é¡µ [ <a
+								href="articleFlat?pageNumber=<s:property value='nextPageNumber'/>">ä¸‹ä¸€é¡µ</a>
 								]
 						</span>
 					</span></td>
@@ -86,11 +86,11 @@
 									width="100%">
 									<thead>
 										<tr>
-											<th class="jive-first" colspan="3">Ö÷Ìâ</th>
-											<th class="jive-author"><nobr> ×÷Õß &nbsp; </nobr></th>
-											<th class="jive-view-count"><nobr> ä¯ÀÀ &nbsp; </nobr></th>
-											<th class="jive-msg-count" nowrap="nowrap">»Ø¸´</th>
-											<th class="jive-last" nowrap="nowrap">×îÐÂÌû×Ó</th>
+											<th class="jive-first" colspan="3">ä¸»é¢˜</th>
+											<th class="jive-author"><nobr> ä½œè€… &nbsp; </nobr></th>
+											<th class="jive-view-count"><nobr> æµè§ˆ &nbsp; </nobr></th>
+											<th class="jive-msg-count" nowrap="nowrap">å›žå¤</th>
+											<th class="jive-last" nowrap="nowrap">æœ€æ–°å¸–å­</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -98,7 +98,7 @@
 											<tr class="jive-even">
 												<td class="jive-first" nowrap="nowrap" width="1%"><div
 														class="jive-bullet">
-														<img src="images/read-16x16.gif" alt="ÒÑ¶Á" border="0"
+														<img src="images/read-16x16.gif" alt="å·²è¯»" border="0"
 															height="16" width="16">
 														<!-- div-->
 													</div></td>
@@ -107,7 +107,7 @@
 
 												<td class="jive-thread-name" width="95%"><a
 													id="jive-thread-1"
-													href="articleFlatDetail?id=<s:property value="id"/>&rootid=<s:property value="rootId"/>"><s:property
+													href="articleFlatDetail?id=<s:property value="id"/>&rootId=<s:property value="rootId"/>"><s:property
 															value="title" /></a></td>
 												<td class="jive-author" nowrap="nowrap" width="1%"><span
 													class=""> <a href=""><s:property

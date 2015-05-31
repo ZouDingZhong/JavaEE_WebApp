@@ -2,6 +2,10 @@ package com.zdz.restructurebbs.action;
 
 import java.sql.Date;
 
+import org.hibernate.Session;
+
+import sun.print.resources.serviceui;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.zdz.restructurebbs.dao.ArticleDao;
 import com.zdz.restructurebbs.model.Article;
@@ -83,7 +87,6 @@ public class NewArticleAction extends ActionSupport{
 			 article.setRootId(rootid);
 			 article.setTitle(title);
 			 article.setUsername(username);
-		 	 
 			 rootid = articleService.save(article);
 			 article.setRootId(rootid);
 			 articleService.save(article);
@@ -105,6 +108,10 @@ public class NewArticleAction extends ActionSupport{
 		 article.setRootId(rootid);
 		 article.setTitle(title);
 		 article.setUsername(username);
+		 
+		 Article superArticle = articleService.getArticleById(pid);
+		 superArticle.setIsLeaf(false);
+		 articleService.save(superArticle);
 		 
 		 articleService.save(article);
 		return SUCCESS;

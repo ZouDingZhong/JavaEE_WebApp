@@ -1,54 +1,9 @@
-<%@page pageEncoding="GBK"%>
-<%@page
-	import="java.sql.*,com.zdz.bbs.*,java.util.*,java.sql.PreparedStatement"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ include file="_SessionCheck.jsp"%>
-
-<%!void delete(Connection conn, int id, boolean isLeaf) {
-		if (!isLeaf) {
-			Statement stmt = null;
-			ResultSet rs = null;
-			try {
-				stmt = DB.getStmt(conn);
-				rs = DB.getResultSet(stmt, "select * from article where pid = "
-						+ id);
-				while (rs.next()) {
-					delete(conn, rs.getInt("id"), rs.getInt("isLeaf") == 0);
-				}
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				DB.close(rs);
-				DB.close(stmt);
-			}
-		}
-
-		Statement stmt = null;
-		try {
-			stmt = DB.getStmt(conn);
-			stmt.executeUpdate("delete from article where id = " + id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DB.close(stmt);
-		}
-
-	}%>
-
-<%
-	request.setCharacterEncoding("GB18030");
-	int id = Integer.parseInt(request.getParameter("id"));
-	boolean isLeaf = Boolean.parseBoolean(request
-			.getParameter("isLeaf"));
-	Connection conn = DB.getConn();
-	delete(conn, id, isLeaf);
-
-	DB.close(conn);
-%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<title>Java|JavaÊÀ½ç_ÖÐÎÄÂÛÌ³|ChinaJavaWorld¼¼ÊõÂÛÌ³ : JavaÓïÑÔ*³õ¼¶°æ</title>
+<title>Java|Javaä¸–ç•Œ_ä¸­æ–‡è®ºå›|ChinaJavaWorldæŠ€æœ¯è®ºå› : Javaè¯­è¨€*åˆçº§ç‰ˆ</title>
 <meta http-equiv="content-type" content="text/html; charset=GBK">
 <link rel="stylesheet" type="text/css" href="images/style.css"
 	title="Integrated Styles">
@@ -73,7 +28,7 @@
 				<td width="140"><a
 					href="http://bbs.chinajavaworld.com/index.jspa"><img
 						src="images/header-left.gif"
-						alt="Java|JavaÊÀ½ç_ÖÐÎÄÂÛÌ³|ChinaJavaWorld¼¼ÊõÂÛÌ³" border="0"></a></td>
+						alt="Java|Javaä¸–ç•Œ_ä¸­æ–‡è®ºå›|ChinaJavaWorldæŠ€æœ¯è®ºå›" border="0"></a></td>
 				<td><img src="images/header-stretch.gif" alt="" border="0"
 					height="57" width="100%"></td>
 				<td width="1%"><img src="images/header-right.gif" alt=""
@@ -86,21 +41,21 @@
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tbody>
 				<tr valign="top">
-					<td width="98%"><p class="jive-breadcrumbs">ÂÛÌ³:
-							JavaÓïÑÔweb¿ª·¢Á·Ï°</p>
-						<p class="jive-description">Õâ¸öÊÇ¸ö´ò½´ÓÍµÄ¼òÒ×ÂÛÌ³£¬´ó¼Ò¿ÉÒÔËæÒâÍÂ²Û...</p></td>
+					<td width="98%"><p class="jive-breadcrumbs">è®ºå›:
+							Javaè¯­è¨€webå¼€å‘ç»ƒä¹ </p>
+						<p class="jive-description">è¿™ä¸ªæ˜¯ä¸ªæ‰“é…±æ²¹çš„ç®€æ˜“è®ºå›ï¼Œå¤§å®¶å¯ä»¥éšæ„åæ§½...</p></td>
 				</tr>
 			</tbody>
 		</table>
 		<br>
 		<h1>
-			É¾³ý²Ù×÷Íê³É£¡
+			åˆ é™¤æ“ä½œå®Œæˆï¼
 			</h3>
 			<script language="JavaScript1.2" type="text/javascript">
 				delayURL('articleFlat', '3000')
 			</script>
-			<span id="time">3</span>Ãëºó×Ô¶¯Ìø×ª£¬ÈçÎ´Ìø×ªÇëµã»÷ <a href="javascript:"
-				onClick="delayURL('articleFlat','0000')">´Ë´¦...</a>
+			<span id="time">3</span>ç§’åŽè‡ªåŠ¨è·³è½¬ï¼Œå¦‚æœªè·³è½¬è¯·ç‚¹å‡» <a href="javascript:"
+				onClick="delayURL('articleFlat','0000')">æ­¤å¤„...</a>
 	</div>
 </body>
 </html>

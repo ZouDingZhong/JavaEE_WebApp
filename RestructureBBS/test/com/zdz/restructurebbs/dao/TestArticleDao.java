@@ -30,4 +30,40 @@ public class TestArticleDao {
 		session.getTransaction().commit();
 		session.close();
 	}
+	@Test
+	public void testEncoding()
+	{
+		SessionFactory sessionFactory;
+		sessionFactory = new Configuration().configure().buildSessionFactory();		
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		Article article = new Article();
+		article.setTitle("我感觉呵呵哒");
+		session.save(article);
+		
+		session.getTransaction().commit();
+		session.close();
+	}
+	@Test
+	public void testIsLeaf()
+	{
+		SessionFactory sessionFactory;
+		sessionFactory = new Configuration().configure().buildSessionFactory();		
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		Article article = new Article();
+		article = (Article) session.get(Article.class,75);
+		System.out.println(article.getIsLeaf());
+		
+		session.getTransaction().commit();
+		session.close();
+	}
+	@Test
+	public void testDelete()
+	{
+		ArticleDao articleDao = new ArticleDao();
+		articleDao.deleteById(95);
+	}
 }
