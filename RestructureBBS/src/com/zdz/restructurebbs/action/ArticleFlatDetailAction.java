@@ -2,6 +2,9 @@ package com.zdz.restructurebbs.action;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.zdz.restructurebbs.dao.ArticleDao;
 import com.zdz.restructurebbs.model.Article;
@@ -13,6 +16,15 @@ public class ArticleFlatDetailAction extends ActionSupport {
 	private int rootId;
 	private List<Article> articles;
 	private Article firstArticle;
+
+	private ArticleService articleService;
+	public ArticleService getArticleService() {
+		return articleService;
+	}
+
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
 
 	public Article getFirstArticle() {
 		return firstArticle;
@@ -48,9 +60,7 @@ public class ArticleFlatDetailAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		ArticleService articleService = new ArticleService();
-		ArticleDao articleDao = new ArticleDao();
-		articleService.setArticleDao(articleDao);
+		
 		articles = articleService.getArticlesByRootid(rootId);
 		if(articles==null) return ERROR;
 		firstArticle = articles.get(0);

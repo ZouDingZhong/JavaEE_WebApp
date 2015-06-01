@@ -2,6 +2,9 @@ package com.zdz.restructurebbs.action;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.zdz.restructurebbs.dao.ArticleDao;
 import com.zdz.restructurebbs.model.Article;
@@ -13,10 +16,18 @@ public class SplitPageAction extends ActionSupport{
 	//为了提高鲁棒性，本来应该使用String接收并检验的
 	private int pageNumber = 1 ;
 	private int totalPageNumber ;
-	private ArticleService articleService;
 	private List<Article> articles;
 	private int lastPageNumber;
 	private int nextPageNumber;
+	
+	private ArticleService articleService;
+	public ArticleService getArticleService() {
+		return articleService;
+	}
+
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
 	
 	public int getLastPageNumber() {
 		return lastPageNumber;
@@ -36,10 +47,7 @@ public class SplitPageAction extends ActionSupport{
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-	public SplitPageAction(){
-		articleService = new ArticleService();
-		articleService.setArticleDao(new ArticleDao());
-	}
+	
 	public int getPageNumber() {
 		return pageNumber;
 	}

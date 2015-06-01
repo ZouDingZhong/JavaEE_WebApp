@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
-	<!-- <constant name="struts.objectFactory" value="spring" /> -->
+	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
 	<package name="bbs" extends="struts-default" namespace="/">
 		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">

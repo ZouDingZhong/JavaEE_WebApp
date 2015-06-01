@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.zdz.bbs.*,java.sql.*"
+<%@ page language="java" import="java.util.*,java.sql.*"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 

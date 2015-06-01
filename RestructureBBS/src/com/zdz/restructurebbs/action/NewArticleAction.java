@@ -3,6 +3,8 @@ package com.zdz.restructurebbs.action;
 import java.sql.Date;
 
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import sun.print.resources.serviceui;
 
@@ -21,6 +23,14 @@ public class NewArticleAction extends ActionSupport{
 	private int pid; 
 	private int rootid;
 	
+	private ArticleService articleService;
+	public ArticleService getArticleService() {
+		return articleService;
+	}
+
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
 	
 	public int getPid() {
 		return pid;
@@ -74,9 +84,6 @@ public class NewArticleAction extends ActionSupport{
 	public String execute() throws Exception {
 		if(post!=null)
 		{
-			 ArticleService articleService = new ArticleService();
-			 ArticleDao articleDao = new ArticleDao();
-			 articleService.setArticleDao(articleDao);
 			 
 			 Article article = new Article();
 			 int rootid = -1;		
@@ -96,9 +103,6 @@ public class NewArticleAction extends ActionSupport{
 	}
 	public String replyDeal()
 	{
-		 ArticleService articleService = new ArticleService();
-		 ArticleDao articleDao = new ArticleDao();
-		 articleService.setArticleDao(articleDao);
 		 
 		 Article article = new Article();
 		 article.setCont(cont);

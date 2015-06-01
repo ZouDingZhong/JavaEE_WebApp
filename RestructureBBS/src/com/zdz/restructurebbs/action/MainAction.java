@@ -1,5 +1,8 @@
 package com.zdz.restructurebbs.action;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.zdz.restructurebbs.dao.ArticleDao;
 import com.zdz.restructurebbs.service.ArticleService;
@@ -7,7 +10,15 @@ import com.zdz.restructurebbs.service.ArticleService;
 public class MainAction extends ActionSupport {
 	private int id;
 	private int rootid;
+	
+	private ArticleService articleService;
+	public ArticleService getArticleService() {
+		return articleService;
+	}
 
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
 
 	public int getId() {
 		return id;
@@ -31,9 +42,7 @@ public class MainAction extends ActionSupport {
 	}
 
 	public String delete() {
-		ArticleService articleService = new ArticleService();
-		ArticleDao articleDao = new ArticleDao();
-		articleService.setArticleDao(articleDao);
+	
 		articleService.deleteArticleById(id);
 		return SUCCESS;
 	}
