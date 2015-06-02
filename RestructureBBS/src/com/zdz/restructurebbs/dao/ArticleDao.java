@@ -11,9 +11,12 @@ import com.zdz.restructurebbs.model.Article;
 
 public class ArticleDao {
 	private SessionFactory sessionFactory;
-	public ArticleDao()
-	{
-		sessionFactory = new Configuration().configure().buildSessionFactory();		
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 	public int save(Article article){
 		Session session = sessionFactory.openSession();
