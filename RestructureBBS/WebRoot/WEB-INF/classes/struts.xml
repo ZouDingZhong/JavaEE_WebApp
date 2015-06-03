@@ -8,29 +8,29 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
 	<package name="bbs" extends="struts-default" namespace="/">
 		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">
-			<result>/articleFlat.jsp</result>
+			<result>/WEB-INF/view/articleFlat.jsp</result>
 		</action>
 		<action name="articleFlatDetail" class="com.zdz.restructurebbs.action.ArticleFlatDetailAction">
-			<result>/articleFlatDetail.jsp</result>
+			<result>/WEB-INF/view/articleFlatDetail.jsp</result>
 		</action>
 		<action name="delete" class="com.zdz.restructurebbs.action.MainAction">
-			<result>/delete.jsp</result>
-		</action>
-		<action name="login">
-			<result>/login.jsp</result>
+			<result>/WEB-INF/view/delete.jsp</result>
 		</action>
 		<action name="newArticle" class="com.zdz.restructurebbs.action.NewArticleAction">
-			<result>/newArticle.jsp</result>
+			<result>/WEB-INF/view/newArticle.jsp</result>
 			<result type="chain" name="return">articleFlat</result>			
 		</action>
 		<action name="reply" class="com.zdz.restructurebbs.action.MainAction">
-			<result>/reply.jsp</result>
+			<result>/WEB-INF/view/reply.jsp</result>
 		</action>
 		<action name="replyDeal" class="com.zdz.restructurebbs.action.NewArticleAction">
-			<result>/replyDeal.jsp</result>
+			<result>/WEB-INF/view/replyDeal.jsp</result>
 		</action>
 		<action name="backgroundAdmin" class="com.zdz.restructurebbs.action.SplitPageAction">
-			<result>/backgroundAdmin.jsp</result>
+			<result>/WEB-INF/view/backgroundAdmin.jsp</result>
+		</action>
+		<action name="*">
+			<result>/WEB-INF/view/{1}.jsp</result>
 		</action>
 	</package>
 
