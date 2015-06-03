@@ -1,9 +1,12 @@
 package com.zdz.restructurebbs.dao;
 
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.management.Query;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -64,6 +67,22 @@ public class TestArticleDao {
 	public void testDelete()
 	{
 		ArticleDao articleDao = new ArticleDao();
-		articleDao.deleteById(95);
+		articleDao.setSessionFactory(new Configuration().configure().buildSessionFactory());
+		articleDao.deleteById(96);
+	}
+	@Test
+	public void testIterator()
+	{
+		List list = new LinkedList();
+		list.add(1);
+		list.add(2);
+		Iterator iterator = list.iterator();
+//		System.out.println(iterator);
+//		iterator.next();
+//		System.out.println(iterator);
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next());
+		}
 	}
 }

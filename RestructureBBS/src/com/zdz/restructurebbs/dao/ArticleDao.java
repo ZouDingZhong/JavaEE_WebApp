@@ -72,47 +72,20 @@ public class ArticleDao {
 			session.delete(article);
 		}
 		else {
-			List<Article> articles = session.createQuery("from Article article where article.rootId = "+id).list();
+			List<Article> articles = session.createQuery("from Article article where article.pid = "+id).list();
 			Iterator<Article> iterator = articles.iterator();
-			iterator.next();//这里是为了挣脱无限循环，因为第一个子贴就是自己
+//			iterator.next();//这里是为了挣脱无限循环，因为第一个子贴就是自己
 			article.setIsLeaf(true);
 			session.update(article);
 			while(iterator.hasNext())
 			{
-				delete(iterator.next());
+				session.delete(iterator.next());
 			}
-			delete(article);
-		}
-		session.getTransaction().commit();
-		session.close();
-	}
-	
-	public void delete(Article article)
-	{
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		if(article.getIsLeaf())
-		{
 			session.delete(article);
 		}
-		else {
-			List<Article> articles = session.createQuery("from Article article where article.rootId = "+article.getId()).list();
-			Iterator<Article> iterator = articles.iterator();
-			iterator.next();//这里是为了挣脱无限循环，因为第一个子贴就是自己
-			article.setIsLeaf(true);
-			session.update(article);
-			while(iterator.hasNext())
-			{
-				delete(iterator.next());
-			}
-			
-			delete(article);
-		}
 		session.getTransaction().commit();
 		session.close();
-
 	}
-	
 	
 	public Article getArticleById(int id)
 	{

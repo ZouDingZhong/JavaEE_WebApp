@@ -94,8 +94,14 @@
 										</tr>
 									</thead>
 									<tbody>
-										<s:iterator value="articles">
-											<tr class="jive-even">
+										<s:iterator value="articles" status="status">
+											<tr
+												<s:if test="#status.odd">
+											    class="jive-even" 
+												</s:if>
+												<s:else>
+												class="jive-odd"
+												</s:else>>
 												<td class="jive-first" nowrap="nowrap" width="1%"><div
 														class="jive-bullet">
 														<img src="images/read-16x16.gif" alt="已读" border="0"
