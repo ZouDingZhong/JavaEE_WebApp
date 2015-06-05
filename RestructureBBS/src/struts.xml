@@ -2,15 +2,23 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
+
 <struts>
 
 	<constant name="struts.objectFactory" value="spring" />
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<package name="bbs" extends="struts-default" namespace="/">
+
+		<interceptors>
+			<interceptor name="authority"
+				class="com.zdz.restructurebbs.interceptor.AuthorityInterceptor" />
+		</interceptors>
+
 		<action name="articleFlat" class="com.zdz.restructurebbs.action.SplitPageAction">
 			<result>/WEB-INF/view/articleFlat.jsp</result>
 		</action>
-		<action name="articleFlatDetail" class="com.zdz.restructurebbs.action.ArticleFlatDetailAction">
+		<action name="articleFlatDetail"
+			class="com.zdz.restructurebbs.action.ArticleFlatDetailAction">
 			<result>/WEB-INF/view/articleFlatDetail.jsp</result>
 		</action>
 		<action name="delete" class="com.zdz.restructurebbs.action.MainAction">
@@ -18,7 +26,7 @@
 		</action>
 		<action name="newArticle" class="com.zdz.restructurebbs.action.NewArticleAction">
 			<result>/WEB-INF/view/newArticle.jsp</result>
-			<result type="chain" name="return">articleFlat</result>			
+			<result type="chain" name="return">articleFlat</result>
 		</action>
 		<action name="reply" class="com.zdz.restructurebbs.action.MainAction">
 			<result>/WEB-INF/view/reply.jsp</result>
@@ -28,6 +36,9 @@
 		</action>
 		<action name="backgroundAdmin" class="com.zdz.restructurebbs.action.SplitPageAction">
 			<result>/WEB-INF/view/backgroundAdmin.jsp</result>
+			<result name="login">/WEB-INF/view/login.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="authority" />
 		</action>
 		<action name="*">
 			<result>/WEB-INF/view/{1}.jsp</result>
