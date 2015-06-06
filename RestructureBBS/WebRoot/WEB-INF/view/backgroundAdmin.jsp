@@ -1,14 +1,5 @@
 <%@page pageEncoding="UTF-8"%>
-<%@page import="java.util.*"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<%
-	boolean logined = false;
-	String adminLogined = (String) session.getAttribute("adminLogined");
-	if (adminLogined == null
-			|| (!adminLogined.equalsIgnoreCase("true"))) {
-		response.sendRedirect("articleFlat");
-	}
-%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
